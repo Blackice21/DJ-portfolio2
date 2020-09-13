@@ -1,0 +1,31 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+
+<div class="row justify-content-center mb-3">
+  <div class="col-md-9 text-center">
+    <h1 class="text-center" >Hey! My names Marcus and I'm a proud and upcoming software dev!</h1>
+  </div>
+</div> 
+  {% load static %}
+
+<div class="row justify-content-center my-3">
+  <div>
+    <img src="{% static 'portfolio/WIN_20200718_17_03_33_Pro.jpg' %}" alt="" width="400" height="400">  
+  </div>
+</div>
+  
+  
+  <h2>Portfolio</h2>
+
+<hr>
+<div class="row">
+  {% for project in projects.all %}
+    <div class="col-lg-4 col-md-6">
+      <img  class="img-fluid" src="{{project.image.url}}" alt="" width="300" height="300">
+      <h3>{{project.title}}</h3>
+      {{project.body}}
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}
